@@ -1,16 +1,24 @@
 import math
 
 while True:
-    print("Select any operation : \n")
-    print("1. Addition\n")
-    print("2. Subtraction\n")
-    print("3. Multiplication\n")
-    print("4. Division\n")
-    print("5. Logarithm\n")
-    print("6. Trigonometry\n")
-    print("7. Exponentiation\n")
-    print("8. Calculate distance between two number\n")
-    print("9. Exit\n")
+    print("Select any operation : ")
+    print("1. Addition")
+    print("2. Subtraction")
+    print("3. Multiplication")
+    print("4. Division")
+    print("5. Logarithm")
+    print("6. Trigonometry")
+    print("7. Exponentiation")
+    print("8. Calculate distance between two coordinates")
+    print("9. Calculate area of circle")
+    print("10. Calculate area of rectangle")
+    print("11. Calculate area of triangle")
+    print("12. Calculate area of square")
+    print("13. Calculate area of ellipse")
+    print("14. Calculate factorial")
+    print("15. Calculate distance between two points")
+    print("16. Find number is prime or not")
+    print("17. Exit")
     
     try:
         choose = int(input())
@@ -22,13 +30,14 @@ while True:
         case 1:
             num1 = float(input("Enter first number : "))
             num2 = float(input("Enter second number : "))
-            total_sum = 0
+            total_sum = num1+num2
             while True:
-                if num == 0:
+                num2 = float(input("Enter a number (for no more number enter zero): "))
+                if num2 == 0:
                     print("Total Sum is: ", total_sum)
                     break
-                num = float(input("Enter a number (for no more number enter zero): "))
-                total_sum += num
+                else:
+                    total_sum += num2
 
         case 2:
             num1 = float(input("Enter first number: "))
@@ -37,7 +46,7 @@ while True:
             if(num2>num1):
                 a='-'
             while True:
-                #sub = math.fabs(sub)
+                #sub = math.fabs(sub)  fabs function is use to make negative number into positive number
                 num2 = float(input("Enter next number (for no more number enter zero): "))
                 if num2 == 0:
                     if(a=='-'):
@@ -55,12 +64,14 @@ while True:
             num1 = float(input("Enter first number: "))
             num2 = float(input("Enter second number: "))
             product = num1 * num2
+           # print(product)
             while True:
+                num2 = float(input("Enter next number (for no more number enter zero): "))
                 if num2 == 0:
                     print("Result is: ", product)
                     break
-                num2 = float(input("Enter next number (for no more number enter zero): "))
-                product *= num2
+                else:
+                    product *= num2
 
         case 4:
             num1 = float(input("Enter numerator: "))
@@ -80,7 +91,7 @@ while True:
             else:
                 print("Error: Logarithm of non-positive number.")
 
-        case 6:
+        case 6:     #study about angle, degree, radian and their convator also which value is to print.
             angle = float(input("Enter angle in degrees: "))
             radians = math.radians(angle)
             tri = str(input("Enter the trigonometric function (sin, cos, tan, cot, sec, cosec): "))
@@ -100,20 +111,47 @@ while True:
                 print("Error: Invalid trigonometric function.")
 
         case 7:
-            number = float(input("Enter the number whose power is to find"))
-            power = float(input("Enter the power"))
+            number = float(input("Enter the number whose power is to find "))
+            power = float(input("Enter the power "))
             number = pow(number,power)
             print("Number : ",number)
 
         case 8:
-            x1 = float(input("Enter the starting x coordinate"))
-            x2 = float(input("Enter the ending x coordinate"))
-            y1 = float(input("Enter the starting y coordinate"))
-            y2 = float(input("Enter the ending y coordinate"))
+            x1 = float(input("Enter the starting x coordinate "))
+            x2 = float(input("Enter the ending x coordinate "))
+            y1 = float(input("Enter the starting y coordinate "))
+            y2 = float(input("Enter the ending y coordinate "))
             dis=math.sqrt(pow((x2-x1),2)+pow((y2-y1),2))
             print("Distance between the given coordinate = ",dis)
         
         case 9:
+            radius = float(input("Enter the radius of the circle "))
+            print("Area of the circle = ",math.pi*pow(radius,2))        #math.pi give pi value = 3.14
+
+        case 10:
+            length = float(input("Enter length of the rectangle "))
+            breadth = float(input("Enter breadth of the rectangle "))
+            area= length*breadth
+            print("Area of rectangle = ",area)
+            print("Perimeter of rectangle = ",2*(length+breadth))
+
+        case 14:
+            num = int(input("Enter the number upto which factorial series has to print "))
+            factorial = math.factorial(num)
+            print("Factorial number = ",factorial)
+
+        case 16:
+            num = int(input("Enter the number to check whether it is prime or not "))
+            if num == 1:
+                print("Given number is not prime number\n")
+            else:
+                for i in range(2, int(math.sqrt(num))+1):
+                    if num %i==0:
+                        print("Number is not a prime number")
+                    else:
+                        print("Number is prime number")
+
+        case 17:
             print("Exiting...")
             break
 
